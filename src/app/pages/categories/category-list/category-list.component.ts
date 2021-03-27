@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../shared/category.model';
 import { CategoryService } from '../shared/category.service';
 
+import toastr from 'toastr';
+
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
@@ -20,7 +22,7 @@ export class CategoryListComponent implements OnInit {
     );
   }
 
-  deleteCatory(category) {
+  deleteCategory(category) {
     const mustDelete = confirm('Deseja realmente excluir este item ?');
 
     if (mustDelete) {
@@ -29,5 +31,6 @@ export class CategoryListComponent implements OnInit {
         () => alert("Erro ao tentar excluir!")
       );
     }
+    toastr.success('Categoria excluida com sucesso!');
   }
 }
