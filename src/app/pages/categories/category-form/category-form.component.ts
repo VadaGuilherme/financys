@@ -1,4 +1,3 @@
-import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
