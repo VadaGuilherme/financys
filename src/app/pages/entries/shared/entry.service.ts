@@ -10,8 +10,10 @@ import { BaseResourceService } from 'src/app/shared/services/base-resource.servi
 })
 export class EntryService extends BaseResourceService<Entry> {
 
-  constructor(protected injector: Injector) {
-    super('api/entries', injector);
+  constructor(
+    protected injector: Injector
+  ) {
+    super('api/entries', injector, Entry.fromJson);
   }
 
   create(entry: Entry): Observable<Entry> {
@@ -32,15 +34,5 @@ export class EntryService extends BaseResourceService<Entry> {
         }
       )
     )
-  }
-
-  protected jsonDataToResources(jsonData: any[]): Entry[] {
-    const entries: Entry[] = [];
-    jsonData.forEach(element => entries.push(Object.assign(new Entry(), element)));
-    return entries;
-  }
-
-  protected jsonDataToResource(jsonData: any): Entry {
-    return Object.assign(new Entry(), jsonData);
   }
 }
