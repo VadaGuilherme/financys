@@ -69,7 +69,7 @@ export class EntryFormComponent extends BaseResourceFormComponent<Entry> impleme
     );
   }
 
-  private loadCategories() {
+  protected loadCategories() {
     this.categoryService.getAll().subscribe(
       categories => this.categories = categories
     );
