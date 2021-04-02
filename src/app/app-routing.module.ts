@@ -4,15 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'categories',
-    loadChildren: './pages/categories/categories.module#CategoriesModule'
+    loadChildren: () => import('./pages/categories/categories.module').then(m => m.CategoriesModule)
   },
   {
     path: 'entries',
-    loadChildren: './pages/entries/entries.module#EntriesModule'
+    loadChildren: () => import('./pages/entries/entries.module').then(m => m.EntriesModule)
   },
   {
     path: 'reports',
-    loadChildren: './pages/reports/reports.module#ReportsModule'
+    loadChildren: () => import('./pages/reports/reports.module').then(m => m.ReportsModule)
   },
   {
     path: '',
