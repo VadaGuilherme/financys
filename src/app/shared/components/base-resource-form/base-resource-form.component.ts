@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 import toastr from 'toastr';
+
 import { BaseResourceModel } from '../../models/base-resource.model';
 import { BaseResourceService } from '../../services/base-resource.service';
 
@@ -69,7 +70,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
                     this.resource = resource;
                     this.resourceForm.patchValue(resource);
                 },
-                (error) => alert('Ocorreu um erro no servidor')
+                (error) => toastr.success('Ocorreu um erro no servidor!')
             );
         }
     }

@@ -5,6 +5,7 @@ import { Entry } from '../../entries/shared/entry.model';
 import { EntryService } from '../../entries/shared/entry.service';
 
 import currencyFormatter from 'currency-formatter';
+import toastr from 'toastr';
 
 @Component({
   selector: 'app-reports',
@@ -53,7 +54,7 @@ export class ReportsComponent implements OnInit {
     const year = this.year.nativeElement.value;
 
     if (!month || !year)
-      alert('Por favor, selecione um mês e um ano para gerar os relatórios!');
+      toastr.warning('Por favor, selecione um mês e um ano para gerar os relatórios!');
     else
       this.entryService.getByMonthAndYear(month, year)
         .subscribe(this.setValues.bind(this));
